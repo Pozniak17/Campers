@@ -18,6 +18,7 @@ export const Input = styled.input`
   border-radius: 10px;
   background: #f7f7f7;
   color: #101828;
+  border: none;
 
   display: flex;
   padding: 18px 218px 18px 18px;
