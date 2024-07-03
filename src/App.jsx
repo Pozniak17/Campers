@@ -1,10 +1,13 @@
-// import { useState } from "react";
-// import reactLogo from "./assets/react.svg";
-// import viteLogo from "/vite.svg";
 import "./App.css";
+import FilterList from "./components/Filters/FilterList/FilterList";
+import { Layout } from "./components/Layout/Layout.module";
 
 function App() {
-  return <></>;
+  return (
+    <Layout>
+      <FilterList />
+    </Layout>
+  );
 }
 
 export default App;
