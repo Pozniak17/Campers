@@ -1,5 +1,6 @@
 import {
   Button,
+  Container,
   Item,
   Line,
   List,
@@ -9,7 +10,7 @@ import {
 
 export default function EquipmentFilter() {
   return (
-    <div>
+    <Container>
       <Title>Filters</Title>
       <MainTitle>Vehicle equipment</MainTitle>
       <Line />
@@ -30,6 +31,6 @@ export default function EquipmentFilter() {
           <Button>Shower/WC</Button>
         </Item>
       </List>
-    </div>
+    </Container>
   );
 }

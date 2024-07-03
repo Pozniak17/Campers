@@ -61,3 +61,7 @@ export const Button = styled.button`
     border: 1px solid #e44848;
   }
 `;
+
+export const Container = styled.div`
+  margin-bottom: 32px;
+`;
