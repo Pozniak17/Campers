@@ -1,29 +1,34 @@
-import { useEffect, useState } from "react";
-import "./App.css";
-import CardList from "./components/Cards/CardList/CardList";
-import FilterList from "./components/Filters/FilterList/FilterList";
-import { Layout } from "./components/Layout/Layout.module";
-import axios from "axios";
+import { Route, Routes } from "react-router-dom";
+import "./App.module.js";
+import Home from "./pages/Home";
+import Catalog from "./pages/Catalog";
+import Favourites from "./pages/Favourites";
+import { Header, Container, Logo, Nav, Link } from "./App.module.js";
 
 function App() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      const response = await axios.get(
-        "https://6602f96b9d7276a75554be5d.mockapi.io/advert"
-      );
-      console.log(response.data);
-      setData(response.data);
-    }
-    fetchData();
-  }, []);
-
   return (
-    <Layout>
-      <FilterList />
-      {data.length > 0 && <CardList items={data} />}
-    </Layout>
+    <Container>
+      <Header>
+        <Logo>
+          <span role="img" aria-label="car icon">
+            🚗
+          </span>
+          Camper Store
+        </Logo>
+
+        <Nav>
+          <Link to="/">Home</Link>
+          <Link to="/catalog">Catalog</Link>
+          <Link to="/favorites">Favorites</Link>
+        </Nav>
+      </Header>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/catalog" element={<Catalog />} />
+        <Route path="/favorites" element={<Favourites />} />
+        <Route path="*" element={<Home />} />
+      </Routes>
+    </Container>
   );
 }
 
