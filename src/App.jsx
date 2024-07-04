@@ -22,7 +22,7 @@ function App() {
   return (
     <Layout>
       <FilterList />
-      <CardList items={data} />
+      {data.length > 0 && <CardList items={data} />}
     </Layout>
   );
 }

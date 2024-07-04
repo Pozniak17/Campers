@@ -1,14 +1,15 @@
-import { Container, Title, WrapperTitle } from "./Card.module";
+/* eslint-disable react/prop-types */
+import { Container, Title, WrapperTitle, Img } from "./Card.module";
 
-export default function Card() {
+export default function Card({ img, name }) {
   return (
     <Container>
       <div>
-        <img src="" alt="" width="290px" height="310px" />
+        <Img src={img} alt="" width="290px" height="310px" />
       </div>
       <div>
         <WrapperTitle>
-          <Title>Mavericks</Title>
+          <Title>{name}</Title>
           <Title>€8000.00</Title>
         </WrapperTitle>
       </div>

@@ -19,7 +19,6 @@ export const Container = styled.li`
 
 export const WrapperTitle = styled.div`
   display: flex;
-  gap: 248px;
 `;
 
 export const Title = styled.h2`
@@ -29,4 +28,9 @@ export const Title = styled.h2`
   font-size: 24px;
   font-weight: 600px;
   line-height: 30px;
+`;
+
+export const Img = styled.img`
+  object-fit: cover;
+  border-radius: 10px;
 `;
