@@ -5,6 +5,8 @@ export default function CardList() {
   return (
     <List>
       <Card />
+      <Card />
+      <Card />
     </List>
   );
 }

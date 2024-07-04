@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.li`
   display: flex;
   gap: 24px;
+  margin-bottom: 24px;
   border-radius: 20px;
   border: 1px solid rgba(16, 24, 40, 0.2);
   background: #fff;
@@ -10,6 +11,10 @@ export const Container = styled.li`
   width: 888px;
   height: 358px;
   padding: 24px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 export const WrapperTitle = styled.div`
