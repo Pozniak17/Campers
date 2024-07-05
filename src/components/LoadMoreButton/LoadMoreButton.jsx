@@ -1,5 +1,6 @@
 import { LoadBtn } from "./LoadMoreButton.module";
 
-export default function LoadMoreButton() {
-  return <LoadBtn>Load more</LoadBtn>;
+// eslint-disable-next-line react/prop-types
+export default function LoadMoreButton({ click }) {
+  return <LoadBtn onClick={() => click()}>Load more</LoadBtn>;
 }
