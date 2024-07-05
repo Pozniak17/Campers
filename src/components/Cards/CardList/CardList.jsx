@@ -13,7 +13,7 @@ export default function CardList({ items, click }) {
           <Card key={item._id} img={item.gallery[0]} name={item.name} />
         ))}
       </List>
-      {items.length >= 2 && <LoadMoreButton click={click} />}
+      {items.length !== 13 && <LoadMoreButton click={click} />}
     </Wrapper>
   );
 }
