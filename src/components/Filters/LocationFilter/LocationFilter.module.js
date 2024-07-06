@@ -1,4 +1,9 @@
+import { Field } from "formik";
 import styled from "styled-components";
+
+export const Wrapper = styled.div`
+  margin-bottom: 32px;
+`;
 
 export const Title = styled.h3`
   color: rgba(16, 24, 40, 0.6);
@@ -12,7 +17,7 @@ export const Title = styled.h3`
   margin-bottom: 8px;
 `;
 
-export const Input = styled.input`
+export const Input = styled(Field)`
   width: 360px;
   height: 56px;
   border-radius: 10px;
@@ -25,8 +30,4 @@ export const Input = styled.input`
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
-`;
-
-export const Wrapper = styled.div`
-  margin-bottom: 32px;
 `;

@@ -4,7 +4,7 @@ export default function LocationFilter() {
   return (
     <Wrapper>
       <Title>Location</Title>
-      <Input placeholder="City" />
+      <Input name="location" type="text" placeholder="City" />
     </Wrapper>
   );
 }
