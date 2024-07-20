@@ -16,19 +16,29 @@ export default function EquipmentFilter() {
       <Line />
       <List>
         <Item>
-          <Button>AC</Button>
+          <Button type="button" name="airConditioner">
+            AC
+          </Button>
         </Item>
         <Item>
-          <Button>Automatic</Button>
+          <Button type="button" name="transmission">
+            Automatic
+          </Button>
         </Item>
         <Item>
-          <Button>Kitchen</Button>
+          <Button type="button" name="kitchen">
+            Kitchen
+          </Button>
         </Item>
         <Item>
-          <Button>TV</Button>
+          <Button type="button" name="TV">
+            TV
+          </Button>
         </Item>
         <Item>
-          <Button>Shower/WC</Button>
+          <Button type="button" name="shower">
+            Shower/WC
+          </Button>
         </Item>
       </List>
     </Container>

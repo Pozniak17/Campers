@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+  margin-bottom: 32px;
+`;
+
 export const Title = styled.h3`
   color: #475467;
   font-family: Inter;
@@ -60,8 +64,4 @@ export const Button = styled.button`
     border-radius: 10px;
     border: 1px solid #e44848;
   }
-`;
-
-export const Container = styled.div`
-  margin-bottom: 32px;
 `;
