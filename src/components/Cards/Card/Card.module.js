@@ -34,3 +34,47 @@ export const Img = styled.img`
   object-fit: cover;
   border-radius: 10px;
 `;
+
+export const Button = styled.button`
+  color: #fff;
+  border-radius: 200px;
+  background: #e44848;
+  border: none;
+
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.08px;
+
+  padding: 16px 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  cursor: pointer;
+
+  &:hover {
+    border-radius: 200px;
+    background: #d84343;
+  }
+`;
+
+export const ImageWrapper = styled.ul`
+  display: flex;
+  gap: 16px;
+`;
+
+export const Item = styled.li`
+  list-style: none;
+`;
+
+export const ModalTitleWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const SecondWrapper = styled.div`
+  display: flex;
+`;
