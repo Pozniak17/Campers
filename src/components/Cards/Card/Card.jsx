@@ -14,6 +14,10 @@ import {
   Item,
   ModalTitleWrapper,
   SecondWrapper,
+  CloseButton,
+  DataText,
+  LocationText,
+  AboutText,
 } from "./Card.module";
 
 export default function Card({ campersData }) {
@@ -34,8 +38,9 @@ export default function Card({ campersData }) {
 
         <CamperModal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
           <ModalTitleWrapper>
-            <h2>{campersData.name}</h2>
-            <button onClick={() => setModalOpen(false)}>
+            <Title>{campersData.name}</Title>
+
+            <CloseButton onClick={() => setModalOpen(false)}>
               <IoCloseSharp
                 style={{
                   width: "32px",
@@ -45,7 +50,7 @@ export default function Card({ campersData }) {
                   cursor: "pointer",
                 }}
               />
-            </button>
+            </CloseButton>
           </ModalTitleWrapper>
 
           <SecondWrapper>
@@ -57,19 +62,19 @@ export default function Card({ campersData }) {
               }}
             />
 
-            <p>
-              {campersData.rating} ({campersData.reviews.length} Reviews)
-            </p>
+            <DataText>
+              {campersData.rating}({campersData.reviews.length} Reviews)
+            </DataText>
             <FiMapPin
               style={{
                 width: "16px",
                 height: "16px",
               }}
             />
-            <p>{campersData.location}</p>
+            <LocationText>{campersData.location}</LocationText>
           </SecondWrapper>
 
-          <p>{`€${campersData.price}.00`}</p>
+          <Title>{`€${campersData.price}.00`}</Title>
 
           <div>
             <ImageWrapper>
@@ -98,7 +103,7 @@ export default function Card({ campersData }) {
                 />
               </Item>
             </ImageWrapper>
-            <p>{campersData.description}</p>
+            <AboutText>{campersData.description}</AboutText>
           </div>
         </CamperModal>
       </div>

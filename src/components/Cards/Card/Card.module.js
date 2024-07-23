@@ -64,6 +64,7 @@ export const Button = styled.button`
 export const ImageWrapper = styled.ul`
   display: flex;
   gap: 16px;
+  margin-bottom: 24px;
 `;
 
 export const Item = styled.li`
@@ -77,4 +78,44 @@ export const ModalTitleWrapper = styled.div`
 
 export const SecondWrapper = styled.div`
   display: flex;
+  align-items: baseline;
+  margin-bottom: 16px;
+`;
+
+export const CloseButton = styled.button`
+  background-color: inherit;
+  border: none;
+
+  &:hover {
+    color: #e44848;
+  }
+`;
+
+export const DataText = styled.p`
+  color: #101828;
+  margin-right: 16px;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  text-decoration-line: underline;
+`;
+
+export const LocationText = styled.p`
+  margin-left: 4px;
+  color: #101828;
+
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+`;
+
+export const AboutText = styled.p`
+  color: #475467;
+  font-family: Inter;
+  font-size: 16px;
+  line-height: 24px; /* 150% */
 `;
