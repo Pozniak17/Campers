@@ -10,7 +10,10 @@ export const fetchCampers = async (limit, page) => {
     },
   });
 
-  console.log("API Response:", response.data);
+  return response.data;
+};
 
+export const fetchCamperById = async (id) => {
+  const response = await axios.get(`/advert/${id}`);
   return response.data;
 };
