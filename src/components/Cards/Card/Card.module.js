@@ -119,3 +119,26 @@ export const AboutText = styled.p`
   font-size: 16px;
   line-height: 24px; /* 150% */
 `;
+
+export const BtnWrapper = styled.ul`
+  margin-top: 44px;
+  gap: 40px;
+  display: flex;
+  list-style: none;
+  border-bottom: 1px solid rgba(16, 24, 40, 0.2);
+`;
+
+export const ButtonParagraph = styled.button`
+  color: #101828;
+  background-color: #fff;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 120% */
+  border: none;
+  cursor: pointer;
+  padding-bottom: 20px;
+
+  border-bottom: ${(props) => (props.isActive ? "5px solid#E44848" : "none")};
+`;

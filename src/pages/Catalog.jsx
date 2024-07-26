@@ -5,6 +5,7 @@ import FilterList from "../components/Filters/FilterList/FilterList";
 import { Layout } from "../components/Layout/Layout.module";
 import { fetchCampers } from "../components/services/campers-api";
 import { RotatingTriangles } from "react-loader-spinner";
+// import EquipmentFilter from "../components/Filters/EquipmentFilter/EquipmentFilter";
 
 export default function Catalog() {
   const [data, setData] = useState([]);
@@ -51,6 +52,7 @@ export default function Catalog() {
       ) : (
         <>
           <FilterList />
+
           {data.length > 0 && <CardList items={data} click={handleClick} />}
         </>
       )}

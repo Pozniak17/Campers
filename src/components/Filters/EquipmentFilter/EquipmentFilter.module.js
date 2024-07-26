@@ -43,6 +43,8 @@ export const Item = styled.li`
 `;
 
 export const Button = styled.button`
+  display: flex;
+  flex-direction: column;
   width: 112px;
   height: 95px;
   padding: 17px 12px;

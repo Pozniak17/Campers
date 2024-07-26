@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import { Form, Formik } from "formik";
 import ButtonFilter from "../ButtonFilter/ButtonFilter";
-// import EquipmentFilter from "../EquipmentFilter/EquipmentFilter";
-// import TypeFilter from "../TypeFilter/TypeFilter";
+import EquipmentFilter from "../EquipmentFilter/EquipmentFilter";
+import TypeFilter from "../TypeFilter/TypeFilter";
 import LocationFilter from "../LocationFilter/LocationFilter";
 import { Wrapper } from "./FilterList.module";
 
@@ -29,8 +29,8 @@ export default function FilterList({ items }) {
       <Form>
         <Wrapper>
           <LocationFilter />
-          {/* <EquipmentFilter />
-          <TypeFilter /> */}
+          <EquipmentFilter />
+          <TypeFilter />
           <ButtonFilter />
         </Wrapper>
       </Form>

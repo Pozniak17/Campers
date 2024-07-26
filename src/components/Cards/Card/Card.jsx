@@ -18,10 +18,14 @@ import {
   DataText,
   LocationText,
   AboutText,
+  BtnWrapper,
+  ButtonParagraph,
 } from "./Card.module";
+import { Features } from "../../SubPages/Features/Features";
 
 export default function Card({ campersData }) {
   const [modalOpen, setModalOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState(null);
 
   console.log(campersData);
   return (
@@ -105,6 +109,37 @@ export default function Card({ campersData }) {
             </ImageWrapper>
             <AboutText>{campersData.description}</AboutText>
           </div>
+
+          <BtnWrapper>
+            <li>
+              <ButtonParagraph
+                onClick={() => setActiveTab("features")}
+                isActive={activeTab === "features"}
+              >
+                Features
+              </ButtonParagraph>
+            </li>
+            <li>
+              <ButtonParagraph
+                onClick={() => setActiveTab("reviews")}
+                isActive={activeTab === "reviews"}
+              >
+                Reviews
+              </ButtonParagraph>
+            </li>
+          </BtnWrapper>
+
+          {activeTab === "features" ? (
+            <div>
+              <Features data={campersData} />
+            </div>
+          ) : activeTab === "reviews" ? (
+            <div>
+              <p>Reviews content here...</p>
+            </div>
+          ) : (
+            <></>
+          )}
         </CamperModal>
       </div>
     </Container>
