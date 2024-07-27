@@ -1,13 +1,20 @@
 /* eslint-disable no-undef */
 import {
+  Button,
+  FirstWrapper,
+  FormText,
+  FormTitle,
+  Input,
   Item,
   List,
+  MainWrapper,
   OptionItem,
   OptionList,
   OptionText,
+  SecondWrapper,
   Text,
+  TextField,
   Title,
-  Wrapper,
 } from "./Features.module";
 import { IoPeopleOutline } from "react-icons/io5";
 import { TbAutomaticGearbox } from "react-icons/tb";
@@ -24,99 +31,114 @@ import { TbCooker } from "react-icons/tb";
 export const Features = ({ data }) => {
   console.log(data);
   return (
-    <Wrapper>
-      <List>
-        <Item>
-          <Text>
-            <IoPeopleOutline style={{ width: "20px", height: "20px" }} />
-            {data.adults} adults
-          </Text>
-        </Item>
-        <Item>
-          <Text>
-            <TbAutomaticGearbox />
-            Automatic
-          </Text>
-        </Item>
-        <Item>
-          <Text>
-            <RiWindyFill />
-            AC
-          </Text>
-        </Item>
-        <Item>
-          <Text>
-            <MdOutlineLocalGasStation
-              style={{ width: "20px", height: "20px" }}
-            />
-            Petrol
-          </Text>
-        </Item>
-        <Item>
-          <Text>
-            <TbToolsKitchen2 style={{ width: "20px", height: "20px" }} />{" "}
-            kitchen
-          </Text>
-        </Item>
-        <Item>
-          <Text>
-            <IoBedOutline style={{ width: "20px", height: "20px" }} />
-            {data.details.beds} beds
-          </Text>
-        </Item>
-        <Item>
-          <Text>
-            <TbAirConditioning style={{ width: "20px", height: "20px" }} />
-            {data.details.airConditioner} air conditioner
-          </Text>
-        </Item>
-        <Item>
-          <Text>
-            <LiaCompactDiscSolid style={{ width: "20px", height: "20px" }} /> CD
-          </Text>
-        </Item>
-        <Item>
-          <Text>
-            <MdOutlineRadio style={{ width: "20px", height: "20px" }} /> Radio
-          </Text>
-        </Item>
-        <Item>
-          <Text>
-            <TbCooker style={{ width: "20px", height: "20px" }} />
-            {data.details.hob} hob
-          </Text>
-        </Item>
-      </List>
+    <MainWrapper>
+      <FirstWrapper>
+        <List>
+          <Item>
+            <Text>
+              <IoPeopleOutline style={{ width: "20px", height: "20px" }} />
+              {data.adults} adults
+            </Text>
+          </Item>
+          <Item>
+            <Text>
+              <TbAutomaticGearbox />
+              Automatic
+            </Text>
+          </Item>
+          <Item>
+            <Text>
+              <RiWindyFill />
+              AC
+            </Text>
+          </Item>
+          <Item>
+            <Text>
+              <MdOutlineLocalGasStation
+                style={{ width: "20px", height: "20px" }}
+              />
+              Petrol
+            </Text>
+          </Item>
+          <Item>
+            <Text>
+              <TbToolsKitchen2 style={{ width: "20px", height: "20px" }} />{" "}
+              kitchen
+            </Text>
+          </Item>
+          <Item>
+            <Text>
+              <IoBedOutline style={{ width: "20px", height: "20px" }} />
+              {data.details.beds} beds
+            </Text>
+          </Item>
+          <Item>
+            <Text>
+              <TbAirConditioning style={{ width: "20px", height: "20px" }} />
+              {data.details.airConditioner} air conditioner
+            </Text>
+          </Item>
+          <Item>
+            <Text>
+              <LiaCompactDiscSolid style={{ width: "20px", height: "20px" }} />{" "}
+              CD
+            </Text>
+          </Item>
+          <Item>
+            <Text>
+              <MdOutlineRadio style={{ width: "20px", height: "20px" }} /> Radio
+            </Text>
+          </Item>
+          <Item>
+            <Text>
+              <TbCooker style={{ width: "20px", height: "20px" }} />
+              {data.details.hob} hob
+            </Text>
+          </Item>
+        </List>
 
-      <div>
-        <Title>Vehicle details</Title>
-        <OptionList>
-          <OptionItem>
-            <OptionText>Form</OptionText>
-            <OptionText>{data.form}</OptionText>
-          </OptionItem>
-          <OptionItem>
-            <OptionText>Length</OptionText>
-            <OptionText>{data.length}</OptionText>
-          </OptionItem>
-          <OptionItem>
-            <OptionText>Width</OptionText>
-            <OptionText>{data.width}</OptionText>
-          </OptionItem>
-          <OptionItem>
-            <OptionText>Height</OptionText>
-            <OptionText>{data.height}</OptionText>
-          </OptionItem>
-          <OptionItem>
-            <OptionText>Tank</OptionText>
-            <OptionText>{data.tank}</OptionText>
-          </OptionItem>
-          <OptionItem>
-            <OptionText>Consumption</OptionText>
-            <OptionText>{data.consumption}</OptionText>
-          </OptionItem>
-        </OptionList>
-      </div>
-    </Wrapper>
+        <div>
+          <Title>Vehicle details</Title>
+          <OptionList>
+            <OptionItem>
+              <OptionText>Form</OptionText>
+              <OptionText>{data.form}</OptionText>
+            </OptionItem>
+            <OptionItem>
+              <OptionText>Length</OptionText>
+              <OptionText>{data.length}</OptionText>
+            </OptionItem>
+            <OptionItem>
+              <OptionText>Width</OptionText>
+              <OptionText>{data.width}</OptionText>
+            </OptionItem>
+            <OptionItem>
+              <OptionText>Height</OptionText>
+              <OptionText>{data.height}</OptionText>
+            </OptionItem>
+            <OptionItem>
+              <OptionText>Tank</OptionText>
+              <OptionText>{data.tank}</OptionText>
+            </OptionItem>
+            <OptionItem>
+              <OptionText>Consumption</OptionText>
+              <OptionText>{data.consumption}</OptionText>
+            </OptionItem>
+          </OptionList>
+        </div>
+      </FirstWrapper>
+
+      <SecondWrapper>
+        <FormTitle>Book your campervan now</FormTitle>
+        <FormText>Stay connected! We are always ready to help you.</FormText>
+        <form>
+          <Input placeholder="Name" type="text" />
+          <Input placeholder="Email" type="email" />
+          <Input placeholder="Booking date" type="text" />
+          <TextField placeholder="Comment" />
+          <Button>Send</Button>
+        </form>
+      </SecondWrapper>
+    </MainWrapper>
   );
 };
