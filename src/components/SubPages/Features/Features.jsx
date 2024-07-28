@@ -1,19 +1,13 @@
 /* eslint-disable no-undef */
 import {
-  Button,
   FirstWrapper,
-  FormText,
-  FormTitle,
-  Input,
   Item,
   List,
   MainWrapper,
   OptionItem,
   OptionList,
   OptionText,
-  SecondWrapper,
   Text,
-  TextField,
   Title,
 } from "./Features.module";
 import { IoPeopleOutline } from "react-icons/io5";
@@ -26,10 +20,10 @@ import { TbAirConditioning } from "react-icons/tb";
 import { LiaCompactDiscSolid } from "react-icons/lia";
 import { MdOutlineRadio } from "react-icons/md";
 import { TbCooker } from "react-icons/tb";
+import { Form } from "../Form/Form";
 
 /* eslint-disable react/prop-types */
 export const Features = ({ data }) => {
-  console.log(data);
   return (
     <MainWrapper>
       <FirstWrapper>
@@ -128,17 +122,7 @@ export const Features = ({ data }) => {
         </div>
       </FirstWrapper>
 
-      <SecondWrapper>
-        <FormTitle>Book your campervan now</FormTitle>
-        <FormText>Stay connected! We are always ready to help you.</FormText>
-        <form>
-          <Input placeholder="Name" type="text" />
-          <Input placeholder="Email" type="email" />
-          <Input placeholder="Booking date" type="text" />
-          <TextField placeholder="Comment" />
-          <Button>Send</Button>
-        </form>
-      </SecondWrapper>
+      <Form />
     </MainWrapper>
   );
 };

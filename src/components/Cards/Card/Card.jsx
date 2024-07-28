@@ -22,6 +22,7 @@ import {
   ButtonParagraph,
 } from "./Card.module";
 import { Features } from "../../SubPages/Features/Features";
+import { Reviews } from "../../SubPages/Reviews/Reviews";
 
 export default function Card({ campersData }) {
   const [modalOpen, setModalOpen] = useState(false);
@@ -135,7 +136,7 @@ export default function Card({ campersData }) {
             </div>
           ) : activeTab === "reviews" ? (
             <div>
-              <p>Reviews content here...</p>
+              <Reviews data={campersData} />
             </div>
           ) : (
             <></>
