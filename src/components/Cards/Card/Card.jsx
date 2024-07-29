@@ -1,4 +1,13 @@
 /* eslint-disable react/prop-types */
+import { FaRegHeart } from "react-icons/fa";
+
+import { IoPeopleOutline } from "react-icons/io5";
+import { TbAutomaticGearbox } from "react-icons/tb";
+import { TbToolsKitchen2 } from "react-icons/tb";
+import { IoBedOutline } from "react-icons/io5";
+import { RiWindyFill } from "react-icons/ri";
+import { MdOutlineLocalGasStation } from "react-icons/md";
+
 import { IoCloseSharp } from "react-icons/io5";
 import { FaStar } from "react-icons/fa";
 import { FiMapPin } from "react-icons/fi";
@@ -20,13 +29,18 @@ import {
   AboutText,
   BtnWrapper,
   ButtonParagraph,
+  List,
+  Text,
+  WrapperData,
+  ShortText,
+  IconWrapper,
 } from "./Card.module";
 import { Features } from "../../SubPages/Features/Features";
 import { Reviews } from "../../SubPages/Reviews/Reviews";
 
 export default function Card({ campersData }) {
   const [modalOpen, setModalOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState(null);
+  const [activeTab, setActiveTab] = useState("features");
 
   console.log(campersData);
   return (
@@ -37,8 +51,63 @@ export default function Card({ campersData }) {
       <div>
         <WrapperTitle>
           <Title>{campersData.name}</Title>
-          <Title>€8000.00</Title>
+          <IconWrapper>
+            <Title>{`€${campersData.price}`}</Title>
+            <FaRegHeart />
+          </IconWrapper>
         </WrapperTitle>
+
+        <WrapperData>
+          <FaStar style={{ color: "#FFC531" }} />
+          <p>
+            {campersData.rating} ({campersData.reviews.length} Rewiews )
+          </p>
+          <FiMapPin />
+          <p>{campersData.location}</p>
+        </WrapperData>
+
+        <ShortText>{campersData.description.slice(0, 61)}..</ShortText>
+
+        <List>
+          <Item>
+            <Text>
+              <IoPeopleOutline style={{ width: "20px", height: "20px" }} />
+              {campersData.adults} adults
+            </Text>
+          </Item>
+          <Item>
+            <Text>
+              <TbAutomaticGearbox />
+              Automatic
+            </Text>
+          </Item>
+          <Item>
+            <Text>
+              <RiWindyFill />
+              AC
+            </Text>
+          </Item>
+          <Item>
+            <Text>
+              <MdOutlineLocalGasStation
+                style={{ width: "20px", height: "20px" }}
+              />
+              Petrol
+            </Text>
+          </Item>
+          <Item>
+            <Text>
+              <TbToolsKitchen2 style={{ width: "20px", height: "20px" }} />{" "}
+              Kitchen
+            </Text>
+          </Item>
+          <Item>
+            <Text>
+              <IoBedOutline style={{ width: "20px", height: "20px" }} />
+              {campersData.details.beds} beds
+            </Text>
+          </Item>
+        </List>
         <Button onClick={() => setModalOpen(true)}>Show more</Button>
 
         <CamperModal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
@@ -134,12 +203,10 @@ export default function Card({ campersData }) {
             <div>
               <Features data={campersData} />
             </div>
-          ) : activeTab === "reviews" ? (
+          ) : (
             <div>
               <Reviews data={campersData} />
             </div>
-          ) : (
-            <></>
           )}
         </CamperModal>
       </div>

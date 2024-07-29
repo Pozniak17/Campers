@@ -19,6 +19,8 @@ export const Container = styled.li`
 
 export const WrapperTitle = styled.div`
   display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 `;
 
 export const Title = styled.h2`
@@ -31,6 +33,7 @@ export const Title = styled.h2`
 `;
 
 export const Img = styled.img`
+  min-width: 290px;
   object-fit: cover;
   border-radius: 10px;
 `;
@@ -141,4 +144,55 @@ export const ButtonParagraph = styled.button`
   padding-bottom: 20px;
 
   border-bottom: ${(props) => (props.isActive ? "5px solid#E44848" : "none")};
+`;
+
+export const List = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+`;
+
+export const Text = styled.span`
+  display: inline-flex;
+  background-color: #f2f4f7;
+
+  padding: 12px 18px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 100px;
+  cursor: pointer;
+
+  color: #101828;
+
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+
+  font-weight: 500;
+  line-height: 20px;
+`;
+
+export const WrapperData = styled.div`
+  margin-top: 8px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+`;
+
+export const ShortText = styled.p`
+  color: #475467;
+
+  /* Main text */
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+`;
+
+export const IconWrapper = styled.div`
+  display: flex;
+  align-items: center;
 `;
