@@ -10,7 +10,7 @@ import {
   TitleName,
   Wrapper,
 } from "./Reviews.module";
-import { Form } from "../Form/Form";
+import { CamperForm } from "../CamperForm/CamperForm";
 
 /* eslint-disable react/prop-types */
 export const Reviews = ({ data }) => {
@@ -67,7 +67,7 @@ export const Reviews = ({ data }) => {
         </Item>
       </List>
 
-      <Form />
+      <CamperForm />
     </Container>
   );
 };

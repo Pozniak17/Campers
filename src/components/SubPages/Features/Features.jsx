@@ -20,7 +20,7 @@ import { TbAirConditioning } from "react-icons/tb";
 import { LiaCompactDiscSolid } from "react-icons/lia";
 import { MdOutlineRadio } from "react-icons/md";
 import { TbCooker } from "react-icons/tb";
-import { Form } from "../Form/Form";
+import { CamperForm } from "../CamperForm/CamperForm";
 
 /* eslint-disable react/prop-types */
 export const Features = ({ data }) => {
@@ -122,7 +122,7 @@ export const Features = ({ data }) => {
         </div>
       </FirstWrapper>
 
-      <Form />
+      <CamperForm />
     </MainWrapper>
   );
 };

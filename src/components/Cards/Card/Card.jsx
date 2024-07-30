@@ -52,7 +52,7 @@ export default function Card({ campersData }) {
         <WrapperTitle>
           <Title>{campersData.name}</Title>
           <IconWrapper>
-            <Title>{`€${campersData.price}`}</Title>
+            <Title>{`€${campersData.price},00`}</Title>
             <FaRegHeart />
           </IconWrapper>
         </WrapperTitle>
@@ -60,7 +60,7 @@ export default function Card({ campersData }) {
         <WrapperData>
           <FaStar style={{ color: "#FFC531" }} />
           <p>
-            {campersData.rating} ({campersData.reviews.length} Rewiews )
+            {campersData.rating} ({campersData.reviews.length} Rewiews)
           </p>
           <FiMapPin />
           <p>{campersData.location}</p>
