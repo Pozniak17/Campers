@@ -1,4 +1,3 @@
-import { Field } from "formik";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -17,7 +16,7 @@ export const Title = styled.h3`
   margin-bottom: 8px;
 `;
 
-export const Input = styled(Field)`
+export const Input = styled.input`
   width: 360px;
   height: 56px;
   border-radius: 10px;

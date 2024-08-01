@@ -4,8 +4,10 @@ import LoadMoreButton from "../../LoadMoreButton/LoadMoreButton";
 import Card from "../Card/Card";
 import { List, Wrapper } from "./CardList.module";
 
-export default function CardList({ items, click }) {
+export default function CardList({ items, click, filterData }) {
   console.log(items);
+
+  console.log(filterData.length);
   return (
     <Wrapper>
       <List>
@@ -13,7 +15,9 @@ export default function CardList({ items, click }) {
           <Card key={item._id} campersData={item} />
         ))}
       </List>
-      {items.length !== 13 && <LoadMoreButton click={click} />}
+      {items.length !== 13 && filterData.length < 2 && (
+        <LoadMoreButton click={click} />
+      )}
     </Wrapper>
   );
 }

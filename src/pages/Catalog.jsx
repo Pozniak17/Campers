@@ -9,6 +9,8 @@ import { RotatingTriangles } from "react-loader-spinner";
 
 export default function Catalog() {
   const [data, setData] = useState([]);
+  const [filter, setFilter] = useState("");
+
   const [page] = useState(1);
   const [limit, setLimit] = useState(4);
   const [loading, setIsLoading] = useState(false);
@@ -35,6 +37,10 @@ export default function Catalog() {
     setLimit((prevState) => prevState + 4);
   };
 
+  const visibleItems = data.filter((item) =>
+    item.location.toLowerCase().includes(filter.toLowerCase())
+  );
+
   return (
     <Layout>
       {loading ? (
@@ -51,9 +57,15 @@ export default function Catalog() {
         </div>
       ) : (
         <>
-          <FilterList />
+          <FilterList value={filter} onFilter={setFilter} />
 
-          {data.length > 0 && <CardList items={data} click={handleClick} />}
+          {data.length > 0 && (
+            <CardList
+              items={visibleItems}
+              click={handleClick}
+              filterData={filter}
+            />
+          )}
         </>
       )}
       {error && (

@@ -42,7 +42,7 @@ export default function Card({ campersData }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("features");
 
-  console.log(campersData);
+  // console.log(campersData);
   return (
     <Container>
       <div>
