@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-const-assign */
 import { useEffect, useState } from "react";
 import CardList from "../components/Cards/CardList/CardList";
@@ -9,7 +10,14 @@ import { RotatingTriangles } from "react-loader-spinner";
 
 export default function Catalog() {
   const [data, setData] = useState([]);
-  const [filter, setFilter] = useState("");
+  const [locationFilter, setLocationFilter] = useState("");
+  const [equipment, setEquipment] = useState({
+    airConditioner: false,
+    automatic: false,
+    kitchen: false,
+    tv: false,
+    shower: false,
+  });
 
   const [page] = useState(1);
   const [limit, setLimit] = useState(4);
@@ -37,8 +45,13 @@ export default function Catalog() {
     setLimit((prevState) => prevState + 4);
   };
 
+  // функція фільтру за обладжнанням
+  // const handleEquipmentChange = (newEquipment) => {
+  //   setEquipment(newEquipment);
+  // };
+
   const visibleItems = data.filter((item) =>
-    item.location.toLowerCase().includes(filter.toLowerCase())
+    item.location.toLowerCase().includes(locationFilter.toLowerCase())
   );
 
   return (
@@ -57,13 +70,18 @@ export default function Catalog() {
         </div>
       ) : (
         <>
-          <FilterList value={filter} onFilter={setFilter} />
+          <FilterList
+            value={locationFilter}
+            onFilter={setLocationFilter}
+            equipment={equipment}
+            // onEquipmentChange={handleEquipmentChange}
+          />
 
           {data.length > 0 && (
             <CardList
               items={visibleItems}
               click={handleClick}
-              filterData={filter}
+              filterData={locationFilter}
             />
           )}
         </>

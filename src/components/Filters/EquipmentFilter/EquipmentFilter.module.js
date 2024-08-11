@@ -42,7 +42,7 @@ export const Item = styled.li`
   list-style: none;
 `;
 
-export const Button = styled.button`
+export const Label = styled.label`
   display: flex;
   flex-direction: column;
   width: 112px;
@@ -63,6 +63,11 @@ export const Button = styled.button`
   cursor: pointer;
 
   &:hover {
+    border-radius: 10px;
+    border: 1px solid #e44848;
+  }
+
+  &:active {
     border-radius: 10px;
     border: 1px solid #e44848;
   }

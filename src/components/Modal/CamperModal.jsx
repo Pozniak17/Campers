@@ -24,12 +24,7 @@ Modal.setAppElement("#root");
 // eslint-disable-next-line react/prop-types
 export const CamperModal = ({ isOpen, onClose, children }) => {
   return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={onClose}
-      style={customStyles}
-      closeTimeoutMS={300}
-    >
+    <Modal isOpen={isOpen} onRequestClose={onClose} style={customStyles}>
       {children}
     </Modal>
   );

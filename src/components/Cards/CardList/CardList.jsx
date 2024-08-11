@@ -6,8 +6,6 @@ import { List, Wrapper } from "./CardList.module";
 
 export default function CardList({ items, click, filterData }) {
   console.log(items);
-
-  console.log(filterData.length);
   return (
     <Wrapper>
       <List>

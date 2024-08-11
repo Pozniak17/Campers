@@ -1,19 +1,25 @@
+/* eslint-disable react/prop-types */
 import { RiWindyLine } from "react-icons/ri";
 import { TbAutomaticGearbox } from "react-icons/tb";
 import { TbToolsKitchen2 } from "react-icons/tb";
 import { PiTelevisionSimple } from "react-icons/pi";
 import { LuShowerHead } from "react-icons/lu";
 import {
-  Button,
   Container,
   Item,
+  Label,
   Line,
   List,
   MainTitle,
   Title,
 } from "./EquipmentFilter.module";
 
-export default function EquipmentFilter() {
+export const EquipmentFilter = ({ equipment, onEquipmentChange }) => {
+  const handleChange = (event) => {
+    const { name, checked } = event.target;
+    onEquipmentChange({ ...equipment, [name]: checked });
+  };
+
   return (
     <Container>
       <Title>Filters</Title>
@@ -21,7 +27,7 @@ export default function EquipmentFilter() {
       <Line />
       <List>
         <Item>
-          <Button type="button" name="airConditioner">
+          <Label>
             <RiWindyLine
               style={{
                 width: "32px",
@@ -29,10 +35,17 @@ export default function EquipmentFilter() {
               }}
             />
             AC
-          </Button>
+            <input
+              type="checkbox"
+              name="airConditioner"
+              checked={equipment.ac}
+              onChange={handleChange}
+            />
+          </Label>
         </Item>
+
         <Item>
-          <Button type="button" name="transmission">
+          <Label>
             <TbAutomaticGearbox
               style={{
                 width: "32px",
@@ -40,10 +53,17 @@ export default function EquipmentFilter() {
               }}
             />
             Automatic
-          </Button>
+            <input
+              type="checkbox"
+              name="automatic"
+              checked={equipment.automatic}
+              onChange={handleChange}
+            />
+          </Label>
         </Item>
+
         <Item>
-          <Button type="button" name="kitchen">
+          <Label>
             <TbToolsKitchen2
               style={{
                 width: "32px",
@@ -51,10 +71,16 @@ export default function EquipmentFilter() {
               }}
             />
             Kitchen
-          </Button>
+            <input
+              type="checkbox"
+              name="kitchen"
+              checked={equipment.kitchen}
+              onChange={handleChange}
+            />
+          </Label>
         </Item>
         <Item>
-          <Button type="button" name="TV">
+          <Label>
             <PiTelevisionSimple
               style={{
                 width: "32px",
@@ -62,10 +88,17 @@ export default function EquipmentFilter() {
               }}
             />
             TV
-          </Button>
+            <input
+              type="checkbox"
+              name="tv"
+              checked={equipment.tv}
+              onChange={handleChange}
+            />
+          </Label>
         </Item>
+
         <Item>
-          <Button type="button" name="shower">
+          <Label>
             <LuShowerHead
               style={{
                 width: "32px",
@@ -73,9 +106,15 @@ export default function EquipmentFilter() {
               }}
             />
             Shower/WC
-          </Button>
+            <input
+              type="checkbox"
+              name="shower"
+              checked={equipment.shower}
+              onChange={handleChange}
+            />
+          </Label>
         </Item>
       </List>
     </Container>
   );
-}
+};

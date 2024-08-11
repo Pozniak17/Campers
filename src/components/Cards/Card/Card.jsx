@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { FaRegHeart } from "react-icons/fa";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 import { IoPeopleOutline } from "react-icons/io5";
 import { TbAutomaticGearbox } from "react-icons/tb";
@@ -11,7 +11,7 @@ import { MdOutlineLocalGasStation } from "react-icons/md";
 import { IoCloseSharp } from "react-icons/io5";
 import { FaStar } from "react-icons/fa";
 import { FiMapPin } from "react-icons/fi";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CamperModal } from "../../Modal/CamperModal";
 import {
   Container,
@@ -42,7 +42,29 @@ export default function Card({ campersData }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("features");
 
-  // console.log(campersData);
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  useEffect(() => {
+    // Завантаження поточного стану "улюблених" з локального сховища
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    setIsFavorite(favorites.some((fav) => fav._id === campersData._id));
+  }, [campersData._id]);
+
+  const handleFavoriteClick = () => {
+    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+    if (isFavorite) {
+      // Видалити з "улюблених"
+      favorites = favorites.filter((fav) => fav._id !== campersData._id);
+    } else {
+      // Додати до "улюблених"
+      favorites.push(campersData);
+    }
+
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+    setIsFavorite(!isFavorite);
+  };
+
   return (
     <Container>
       <div>
@@ -53,7 +75,9 @@ export default function Card({ campersData }) {
           <Title>{campersData.name}</Title>
           <IconWrapper>
             <Title>{`€${campersData.price},00`}</Title>
-            <FaRegHeart />
+            <div onClick={handleFavoriteClick} style={{ cursor: "pointer" }}>
+              {isFavorite ? <FaHeart color="red" /> : <FaRegHeart />}
+            </div>
           </IconWrapper>
         </WrapperTitle>
 
