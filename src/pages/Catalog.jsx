@@ -53,10 +53,6 @@ export default function Catalog() {
   //   setEquipment(newEquipment);
   // };
 
-  // const visibleItems = campers.filter((item) =>
-  //   item.location.toLowerCase().includes(locationFilter.toLowerCase())
-  // );
-
   return (
     <Layout>
       {loading ? (
