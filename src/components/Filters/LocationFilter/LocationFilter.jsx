@@ -1,9 +1,15 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
 import { Input, Title, Wrapper } from "./LocationFilter.module";
+import { useDispatch, useSelector } from "react-redux";
+import { setLocationFilter } from "../../../redux/store";
 
 export default function LocationFilter() {
-  const [locationFilter, setLocationFilter] = useState("");
+  const locationValue = useSelector((state) => state.locationFilter);
+  const dispatch = useDispatch();
+
+  const handleFilterChange = (e) => {
+    dispatch(setLocationFilter(e.target.value));
+  };
   return (
     <Wrapper>
       <Title>Location</Title>
@@ -11,8 +17,8 @@ export default function LocationFilter() {
         name="location"
         type="text"
         placeholder="City"
-        value={locationFilter}
-        onChange={(e) => setLocationFilter(e.target.value)}
+        value={locationValue}
+        onChange={handleFilterChange}
       />
     </Wrapper>
   );

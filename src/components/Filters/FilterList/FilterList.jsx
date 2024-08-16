@@ -18,7 +18,7 @@ export default function FilterList({
   };
   return (
     <Wrapper onSubmit={handleSubmit}>
-      <LocationFilter value={value} onFilter={onFilter} />
+      <LocationFilter />
       <EquipmentFilter
         equipment={equipment}
         onEquipmentChange={onEquipmentChange}

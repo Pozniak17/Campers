@@ -706,10 +706,36 @@ const initalState = {
       ],
     },
   ],
+  locationFilter: "",
+  visibleItems: [],
+};
+
+// const visibleItems = campers.filter((item) =>
+//   item.location.toLowerCase().includes(locationFilter.toLowerCase())
+// );
+
+export const setLocationFilter = (value) => {
+  return {
+    type: "filters/setLocationFilter",
+    payload: value,
+  };
 };
 
 const rootReducer = (state = initalState, action) => {
-  return state;
+  switch (action.type) {
+    case "filters/setLocationFilter": {
+      const filteredCampers = state.campers.filter((item) =>
+        item.location.toLowerCase().includes(action.payload.toLowerCase())
+      );
+      return {
+        ...state,
+        locationFilter: action.payload,
+        visibleItems: filteredCampers,
+      };
+    }
+    default:
+      return state;
+  }
 };
 
 const enhancer = devToolsEnhancer();
