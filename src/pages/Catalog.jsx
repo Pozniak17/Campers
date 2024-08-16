@@ -53,9 +53,9 @@ export default function Catalog() {
   //   setEquipment(newEquipment);
   // };
 
-  const visibleItems = campers.filter((item) =>
-    item.location.toLowerCase().includes(locationFilter.toLowerCase())
-  );
+  // const visibleItems = campers.filter((item) =>
+  //   item.location.toLowerCase().includes(locationFilter.toLowerCase())
+  // );
 
   return (
     <Layout>
@@ -80,7 +80,7 @@ export default function Catalog() {
 
           {campers.length > 0 && (
             <CardList
-              items={visibleItems}
+              // items={visibleItems}
               click={handleClick}
               filterData={locationFilter}
             />
