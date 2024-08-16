@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
+import { useState } from "react";
 import { Input, Title, Wrapper } from "./LocationFilter.module";
 
-export default function LocationFilter({ value, onFilter }) {
+export default function LocationFilter() {
+  const [locationFilter, setLocationFilter] = useState("");
   return (
     <Wrapper>
       <Title>Location</Title>
@@ -9,8 +11,8 @@ export default function LocationFilter({ value, onFilter }) {
         name="location"
         type="text"
         placeholder="City"
-        value={value}
-        onChange={(e) => onFilter(e.target.value)}
+        value={locationFilter}
+        onChange={(e) => setLocationFilter(e.target.value)}
       />
     </Wrapper>
   );

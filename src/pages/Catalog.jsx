@@ -74,8 +74,6 @@ export default function Catalog() {
       ) : (
         <>
           <FilterList
-            value={locationFilter}
-            onFilter={setLocationFilter}
             equipment={equipment}
             // onEquipmentChange={handleEquipmentChange}
           />

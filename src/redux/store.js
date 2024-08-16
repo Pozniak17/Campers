@@ -706,9 +706,6 @@ const initalState = {
       ],
     },
   ],
-  filters: {
-    locationFilter: "",
-  },
 };
 
 const rootReducer = (state = initalState, action) => {
