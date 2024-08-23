@@ -77,12 +77,7 @@ export default function Catalog() {
             // onEquipmentChange={handleEquipmentChange}
           />
 
-          {campers.length > 0 && (
-            <CardList
-              // items={visibleItems}
-              click={handleClick}
-            />
-          )}
+          {campers.length > 0 && <CardList click={handleClick} />}
         </>
       )}
       {error && (
