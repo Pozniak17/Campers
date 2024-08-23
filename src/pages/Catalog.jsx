@@ -4,16 +4,19 @@ import { useEffect, useState } from "react";
 import CardList from "../components/Cards/CardList/CardList";
 import FilterList from "../components/Filters/FilterList/FilterList";
 import { Layout } from "../components/Layout/Layout.module";
-import { fetchCampers } from "../components/services/campers-api";
+// import { fetchCampers } from "../components/services/campers-api";
 import { RotatingTriangles } from "react-loader-spinner";
 import { useSelector } from "react-redux";
 // import EquipmentFilter from "../components/Filters/EquipmentFilter/EquipmentFilter";
 
 export default function Catalog() {
-  const campers = useSelector((state) => state.campers);
+  const campers = useSelector((state) => state.filters.campers);
   console.log(campers);
-  // const [data, setData] = useState([]);
-  const [locationFilter, setLocationFilter] = useState("");
+
+  const visibleItems = useSelector((state) => state.filters.visibleItems);
+
+  console.log(visibleItems);
+
   const [equipment, setEquipment] = useState({
     airConditioner: false,
     automatic: false,
@@ -78,7 +81,6 @@ export default function Catalog() {
             <CardList
               // items={visibleItems}
               click={handleClick}
-              filterData={locationFilter}
             />
           )}
         </>

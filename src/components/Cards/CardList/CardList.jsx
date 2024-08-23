@@ -6,8 +6,8 @@ import Card from "../Card/Card";
 import { List, Wrapper } from "./CardList.module";
 
 export default function CardList({ click, filterData }) {
-  const visibleItems = useSelector((state) => state.visibleItems);
-  const campers = useSelector((state) => state.campers);
+  const visibleItems = useSelector((state) => state.filters.visibleItems);
+  const campers = useSelector((state) => state.filters.campers);
 
   const itemsToDisplay = visibleItems.length ? visibleItems : campers;
 
@@ -18,7 +18,7 @@ export default function CardList({ click, filterData }) {
           <Card key={item._id} campersData={item} />
         ))}
       </List>
-      {itemsToDisplay.length !== 13 && filterData.length > 2 && (
+      {itemsToDisplay?.length !== 13 && filterData?.length > 2 && (
         <LoadMoreButton click={click} />
       )}
     </Wrapper>
