@@ -18,7 +18,7 @@ export default function CardList({ click, filterData }) {
           <Card key={item._id} campersData={item} />
         ))}
       </List>
-      {itemsToDisplay.length !== 13 && filterData.length < 2 && (
+      {itemsToDisplay.length !== 13 && filterData.length > 2 && (
         <LoadMoreButton click={click} />
       )}
     </Wrapper>
