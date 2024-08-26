@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleFavourite } from "../../../redux/favouritesSlice";
 
 import { IoPeopleOutline } from "react-icons/io5";
 import { TbAutomaticGearbox } from "react-icons/tb";
@@ -11,7 +13,7 @@ import { MdOutlineLocalGasStation } from "react-icons/md";
 import { IoCloseSharp } from "react-icons/io5";
 import { FaStar } from "react-icons/fa";
 import { FiMapPin } from "react-icons/fi";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { CamperModal } from "../../Modal/CamperModal";
 import {
   Container,
@@ -44,25 +46,19 @@ export default function Card({ campersData }) {
 
   const [isFavorite, setIsFavorite] = useState(false);
 
+  const dispatch = useDispatch();
+
+  // Отримання списку улюблених із Redux стану
+  const favourites = useSelector((state) => state.favourites);
+
+  // Перевіряємо, чи є цей кемпер у списку улюблених
   useEffect(() => {
-    // Завантаження поточного стану "улюблених" з локального сховища
-    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    setIsFavorite(favorites.some((fav) => fav._id === campersData._id));
-  }, [campersData._id]);
+    setIsFavorite(favourites.some((fav) => fav._id === campersData._id));
+  }, [favourites, campersData._id]);
 
+  // Обробник кліку для додавання або видалення кемпера з улюблених
   const handleFavoriteClick = () => {
-    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
-    if (isFavorite) {
-      // Видалити з "улюблених"
-      favorites = favorites.filter((fav) => fav._id !== campersData._id);
-    } else {
-      // Додати до "улюблених"
-      favorites.push(campersData);
-    }
-
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-    setIsFavorite(!isFavorite);
+    dispatch(toggleFavourite(campersData));
   };
 
   return (

@@ -1,22 +1,15 @@
-// Favourites.jsx
-import { useCallback, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { removeFromFavourites } from "../redux/favouritesSlice";
 import Card from "../components/Cards/Card/Card";
 
 export default function Favourites() {
-  const [favourites, setFavourites] = useState([]);
+  const favourites = useSelector((state) => state.favourites);
+  const dispatch = useDispatch();
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const handleToggleFavorite = useCallback((campersData) => {
-    setFavourites((prevFavourites) =>
-      prevFavourites.filter((fav) => fav._id !== campersData._id)
-    );
-  });
-
-  useEffect(() => {
-    // Завантажити список "улюблених" з localStorage
-    const savedFavourites = JSON.parse(localStorage.getItem("favorites")) || [];
-    setFavourites(savedFavourites);
-  }, [handleToggleFavorite]);
+  const handleToggleFavorite = (campersData) => {
+    dispatch(removeFromFavourites(campersData._id));
+  };
 
   return (
     <div
