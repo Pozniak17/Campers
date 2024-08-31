@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+// Імпортуємо операцію
+import { fetchCampers } from "./operations";
 
 const campersSlice = createSlice({
   name: "campers",
@@ -7,29 +9,22 @@ const campersSlice = createSlice({
     isLoading: false,
     error: null,
   },
-
-  reducers: {
-    //   Виконається в момент старту HTTP-запиту
-    fetchingInProgress(state) {
-      state.isLoading = true;
-    },
-
-    // Виконається якщо HTTP-запит завершився успішно
-    fetchingSuccess(state, action) {
-      state.isLoading = false;
-      state.error = null;
-      state.items = action.payload;
-    },
-
-    //   Виконається якщо HTTP-запит завершився з помилкою
-    fetchingError(state, action) {
-      state.isLoading = false;
-      state.error = action.payload;
-    },
+  // додаємо обробку зовнішніх екшенів
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchCampers.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchCampers.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.items = action.payload;
+      })
+      .addCase(fetchCampers.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
   },
 });
-
-export const { fetchingInProgress, fetchingSuccess, fetchingError } =
-  campersSlice.actions;
 
 export const campersReducer = campersSlice.reducer;

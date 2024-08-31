@@ -4,7 +4,7 @@ import LoadMoreButton from "../../LoadMoreButton/LoadMoreButton";
 import Card from "../Card/Card";
 import { List, Wrapper } from "./CardList.module";
 
-export default function CardList({ click, filterData }) {
+export default function CardList({ onClick }) {
   const visibleItems = useSelector((state) => state.filters.visibleItems);
   const campers = useSelector((state) => state.campers.items);
 
@@ -17,8 +17,8 @@ export default function CardList({ click, filterData }) {
           <Card key={item._id} campersData={item} />
         ))}
       </List>
-      {itemsToDisplay?.length !== 13 && filterData?.length > 2 && (
-        <LoadMoreButton click={click} />
+      {itemsToDisplay?.length > 0 && itemsToDisplay.length < 13 && (
+        <LoadMoreButton click={onClick} />
       )}
     </Wrapper>
   );

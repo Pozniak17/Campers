@@ -14,18 +14,17 @@ import { fetchCampers } from "../redux/operations";
 
 export default function Catalog() {
   const dispatch = useDispatch();
-
   // отримуємо частини стану
   const { items, isLoading, error } = useSelector(getCampers);
+  const [limit, setLimit] = useState(4);
+  const [page, setPage] = useState(1);
 
   // викликаємо операцію
   useEffect(() => {
-    dispatch(fetchCampers());
-  }, [dispatch]);
+    dispatch(fetchCampers({ limit, page }));
+  }, [dispatch, limit, page]);
 
   const visibleItems = useSelector((state) => state.filters.visibleItems);
-
-  console.log(visibleItems);
 
   const [equipment, setEquipment] = useState({
     airConditioner: false,
@@ -34,26 +33,6 @@ export default function Catalog() {
     tv: false,
     shower: false,
   });
-
-  // const [page] = useState(1);
-  const [limit, setLimit] = useState(4);
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       setError(false);
-  //       setIsLoading(true);
-  //       const campersData = await fetchCampers(limit, page);
-  //       setData(campersData);
-  //     } catch (error) {
-  //       setError(true);
-  //     } finally {
-  //       setIsLoading(false);
-  //     }
-  //   }
-
-  //   fetchData();
-  // }, [limit, page]);
 
   const handleClick = () => {
     setLimit((prevState) => prevState + 4);
@@ -86,7 +65,7 @@ export default function Catalog() {
             // onEquipmentChange={handleEquipmentChange}
           />
 
-          {items.length > 0 && <CardList click={handleClick} />}
+          {items.length > 0 && <CardList onClick={handleClick} />}
         </>
       )}
       {error && (
