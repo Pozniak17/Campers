@@ -4,14 +4,24 @@ import { useEffect, useState } from "react";
 import CardList from "../components/Cards/CardList/CardList";
 import FilterList from "../components/Filters/FilterList/FilterList";
 import { Layout } from "../components/Layout/Layout.module";
-// import { fetchCampers } from "../components/services/campers-api";
+
 import { RotatingTriangles } from "react-loader-spinner";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getCampers } from "../redux/selectors";
+import { fetchCampers } from "../redux/operations";
+
 // import EquipmentFilter from "../components/Filters/EquipmentFilter/EquipmentFilter";
 
 export default function Catalog() {
-  const campers = useSelector((state) => state.filters.campers);
-  console.log(campers);
+  const dispatch = useDispatch();
+
+  // отримуємо частини стану
+  const { items, isLoading, error } = useSelector(getCampers);
+
+  // викликаємо операцію
+  useEffect(() => {
+    dispatch(fetchCampers());
+  }, [dispatch]);
 
   const visibleItems = useSelector((state) => state.filters.visibleItems);
 
@@ -25,10 +35,8 @@ export default function Catalog() {
     shower: false,
   });
 
-  const [page] = useState(1);
+  // const [page] = useState(1);
   const [limit, setLimit] = useState(4);
-  const [loading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
 
   // useEffect(() => {
   //   async function fetchData() {
@@ -56,9 +64,10 @@ export default function Catalog() {
   //   setEquipment(newEquipment);
   // };
 
+  // Рендерим розмітку в залежності від значень у стані
   return (
     <Layout>
-      {loading ? (
+      {isLoading ? (
         <div className="loader-container">
           <RotatingTriangles
             visible={true}
@@ -77,7 +86,7 @@ export default function Catalog() {
             // onEquipmentChange={handleEquipmentChange}
           />
 
-          {campers.length > 0 && <CardList click={handleClick} />}
+          {items.length > 0 && <CardList click={handleClick} />}
         </>
       )}
       {error && (

@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-
 import { useSelector } from "react-redux";
 import LoadMoreButton from "../../LoadMoreButton/LoadMoreButton";
 import Card from "../Card/Card";
@@ -7,7 +6,7 @@ import { List, Wrapper } from "./CardList.module";
 
 export default function CardList({ click, filterData }) {
   const visibleItems = useSelector((state) => state.filters.visibleItems);
-  const campers = useSelector((state) => state.filters.campers);
+  const campers = useSelector((state) => state.campers.items);
 
   const itemsToDisplay = visibleItems.length ? visibleItems : campers;
 
