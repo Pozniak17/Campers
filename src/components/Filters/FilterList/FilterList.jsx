@@ -7,8 +7,8 @@ import { Wrapper } from "./FilterList.module";
 
 // eslint-disable-next-line no-unused-vars
 export default function FilterList({
-  value,
-  onFilter,
+  // value,
+  // onFilter,
   equipment,
   onEquipmentChange,
 }) {
