@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function LocationFilter() {
   const locationValue = useSelector((state) => state.filters.locationFilter);
-  console.log(locationValue);
+  // console.log(locationValue);
   const dispatch = useDispatch();
 
   const handleFilterChange = (e) => {

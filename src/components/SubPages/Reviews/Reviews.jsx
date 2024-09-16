@@ -1,5 +1,3 @@
-import { FaStar } from "react-icons/fa";
-
 import {
   Circle,
   Container,
@@ -11,6 +9,7 @@ import {
   Wrapper,
 } from "./Reviews.module";
 import { CamperForm } from "../CamperForm/CamperForm";
+import { Stars } from "../../services/stars";
 
 /* eslint-disable react/prop-types */
 export const Reviews = ({ data }) => {
@@ -26,17 +25,9 @@ export const Reviews = ({ data }) => {
 
             <div>
               <TitleName>{data.reviews[0].reviewer_name}</TitleName>
-              <span>
-                {data.reviews[0].reviewer_rating === 5 && (
-                  <div style={{ color: " #FFC531", width: "16", height: "16" }}>
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                  </div>
-                )}
-              </span>
+
+              {/* функція для зірочок */}
+              <span>{Stars(data.reviews[0].reviewer_rating)}</span>
             </div>
           </Wrapper>
 
@@ -51,22 +42,14 @@ export const Reviews = ({ data }) => {
 
             <div>
               <TitleName>{data.reviews[1].reviewer_name}</TitleName>
-              <span>
-                {data.reviews[1].reviewer_rating === 4 && (
-                  <div style={{ color: " #FFC531", width: "16", height: "16" }}>
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                  </div>
-                )}
-              </span>
+
+              {/* функція для зірочок */}
+              <span>{Stars(data.reviews[1].reviewer_rating)}</span>
             </div>
           </Wrapper>
           <Text>{data.reviews[1].comment}</Text>
         </Item>
       </List>
-
       <CamperForm />
     </Container>
   );
