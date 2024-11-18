@@ -9,7 +9,7 @@ import {
   OptionText,
   Text,
   Title,
-} from "./Features.module";
+} from "./Features.styled";
 import { IoPeopleOutline } from "react-icons/io5";
 import { TbAutomaticGearbox } from "react-icons/tb";
 import { TbToolsKitchen2 } from "react-icons/tb";

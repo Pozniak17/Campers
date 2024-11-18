@@ -5,7 +5,7 @@ import {
   Line,
   List,
   Title,
-} from "./TypeFilter.module";
+} from "./TypeFilter.styled";
 
 export default function TypeFilter() {
   return (

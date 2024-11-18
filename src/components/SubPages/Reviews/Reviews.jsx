@@ -7,7 +7,7 @@ import {
   Text,
   TitleName,
   Wrapper,
-} from "./Reviews.module";
+} from "./Reviews.styled";
 import { CamperForm } from "../CamperForm/CamperForm";
 import { Stars } from "../../services/stars";
 

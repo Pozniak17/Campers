@@ -1,11 +1,11 @@
-import { Slider } from "../components/Slider/Slider";
+// import { Slider } from "../components/Slider/Slider";
+
+import Hero from "../components/Hero/Hero";
 
 export default function Home() {
   return (
-    <div style={{ textAlign: "center" }}>
-      <h1>Welcome to Camper Rental</h1>
-      <p>We offer a variety of campers for rent all over Ukraine.</p>
-      <Slider />
-    </div>
+    <>
+      <Hero />
+    </>
   );
 }

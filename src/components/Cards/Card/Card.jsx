@@ -36,7 +36,7 @@ import {
   WrapperData,
   ShortText,
   IconWrapper,
-} from "./Card.module";
+} from "./Card.styled";
 import { Features } from "../../SubPages/Features/Features";
 import { Reviews } from "../../SubPages/Reviews/Reviews";
 

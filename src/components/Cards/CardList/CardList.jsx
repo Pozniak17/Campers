@@ -2,7 +2,7 @@
 import { useSelector } from "react-redux";
 import LoadMoreButton from "../../LoadMoreButton/LoadMoreButton";
 import Card from "../Card/Card";
-import { List, Wrapper } from "./CardList.module";
+import { List, Wrapper } from "./CardList.styled";
 
 export default function CardList({ onClick }) {
   const visibleItems = useSelector((state) => state.filters.visibleItems);

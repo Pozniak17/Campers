@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import CardList from "../components/Cards/CardList/CardList";
 import FilterList from "../components/Filters/FilterList/FilterList";
-import { Layout } from "../components/Layout/Layout.module";
+import { Layout } from "../components/Layout/Layout.styled";
 
 import { RotatingTriangles } from "react-loader-spinner";
 import { useDispatch, useSelector } from "react-redux";

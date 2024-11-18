@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { locationFilter } from "../../../redux/filtersSlice";
-import { Input, Title, Wrapper } from "./LocationFilter.module";
+import { Input, Title, Wrapper } from "./LocationFilter.styled";
 import { useDispatch, useSelector } from "react-redux";
 // import { setLocationFilter } from "../../../redux/store";
 

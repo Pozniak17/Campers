@@ -1,4 +1,4 @@
-import { LoadBtn } from "./LoadMoreButton.module";
+import { LoadBtn } from "./LoadMoreButton.styled";
 
 // eslint-disable-next-line react/prop-types
 export default function LoadMoreButton({ click }) {

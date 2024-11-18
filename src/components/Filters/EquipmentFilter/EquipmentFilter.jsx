@@ -12,7 +12,7 @@ import {
   List,
   MainTitle,
   Title,
-} from "./EquipmentFilter.module";
+} from "./EquipmentFilter.styled";
 
 export const EquipmentFilter = ({ equipment, onEquipmentChange }) => {
   const handleChange = (event) => {
