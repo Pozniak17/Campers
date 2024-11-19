@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import ButtonFilter from "../ButtonFilter/ButtonFilter";
-import { EquipmentFilter } from "../EquipmentFilter/EquipmentFilter";
+// import { EquipmentFilter } from "../EquipmentFilter/EquipmentFilter";
 import TypeFilter from "../TypeFilter/TypeFilter";
 import LocationFilter from "../LocationFilter/LocationFilter";
 import { Wrapper } from "./FilterList.styled";
@@ -19,10 +20,10 @@ export default function FilterList({
   return (
     <Wrapper onSubmit={handleSubmit}>
       <LocationFilter />
-      <EquipmentFilter
+      {/* <EquipmentFilter
         equipment={equipment}
         onEquipmentChange={onEquipmentChange}
-      />
+      /> */}
       <TypeFilter />
       <ButtonFilter />
     </Wrapper>

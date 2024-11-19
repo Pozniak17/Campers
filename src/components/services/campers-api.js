@@ -1,16 +1,16 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://6602f96b9d7276a75554be5d.mockapi.io";
+axios.defaults.baseURL = "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io";
 
-export const campersQuery = async (limit, page) => {
-  const response = await axios.get("/advert", {
+export const fetchCampers = async (limit, page) => {
+  const response = await axios.get("/campers", {
     params: {
       limit,
       page,
     },
   });
 
-  return response.data;
+  return response.data.items;
 };
 
 export const fetchCamperById = async (id) => {

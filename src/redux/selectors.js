@@ -1,1 +1,1 @@
-export const getCampers = (state) => state.campers;
+// export const getCampers = (state) => state.campers;

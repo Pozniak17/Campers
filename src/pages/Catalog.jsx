@@ -1,52 +1,41 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-const-assign */
 import { useEffect, useState } from "react";
-import CardList from "../components/Cards/CardList/CardList";
+import CardList from "../components/CardList/CardList";
 import FilterList from "../components/Filters/FilterList/FilterList";
 import { Layout } from "../components/Layout/Layout.styled";
-
+import { fetchCampers } from "../components/services/campers-api";
 import { RotatingTriangles } from "react-loader-spinner";
-import { useDispatch, useSelector } from "react-redux";
-import { getCampers } from "../redux/selectors";
-import { fetchCampers } from "../redux/operations";
-
-// import EquipmentFilter from "../components/Filters/EquipmentFilter/EquipmentFilter";
 
 export default function Catalog() {
-  const dispatch = useDispatch();
-  // отримуємо частини стану
-  const { items, isLoading, error } = useSelector(getCampers);
+  const [data, setData] = useState([]);
+  const [page] = useState(1);
   const [limit, setLimit] = useState(4);
-  const [page, setPage] = useState(1);
+  const [loading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
 
-  // викликаємо операцію
   useEffect(() => {
-    dispatch(fetchCampers({ limit, page }));
-  }, [dispatch, limit, page]);
+    async function fetchData() {
+      try {
+        setError(false);
+        setIsLoading(true);
+        const campersData = await fetchCampers(limit, page);
+        setData(campersData);
+      } catch (error) {
+        setError(true);
+      } finally {
+        setIsLoading(false);
+      }
+    }
 
-  const visibleItems = useSelector((state) => state.filters.visibleItems);
-
-  const [equipment, setEquipment] = useState({
-    airConditioner: false,
-    automatic: false,
-    kitchen: false,
-    tv: false,
-    shower: false,
-  });
+    fetchData();
+  }, [limit, page]);
 
   const handleClick = () => {
     setLimit((prevState) => prevState + 4);
   };
 
-  // функція фільтру за обладжнанням
-  // const handleEquipmentChange = (newEquipment) => {
-  //   setEquipment(newEquipment);
-  // };
-
-  // Рендерим розмітку в залежності від значень у стані
   return (
     <Layout>
-      {isLoading ? (
+      {loading ? (
         <div className="loader-container">
           <RotatingTriangles
             visible={true}
@@ -60,12 +49,9 @@ export default function Catalog() {
         </div>
       ) : (
         <>
-          <FilterList
-            equipment={equipment}
-            // onEquipmentChange={handleEquipmentChange}
-          />
+          <FilterList />
 
-          {items.length > 0 && <CardList onClick={handleClick} />}
+          {data.length > 0 && <CardList items={data} click={handleClick} />}
         </>
       )}
       {error && (
