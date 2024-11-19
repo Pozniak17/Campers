@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import CardList from "../components/CardList/CardList";
+import CardList from "../components/CardList/CardList.tsx";
 import FilterList from "../components/Filters/FilterList/FilterList";
 import { Layout } from "../components/Layout/Layout.styled";
 import { fetchCampers } from "../components/services/campers-api";

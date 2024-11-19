@@ -8,27 +8,27 @@ import { IoBedOutline } from "react-icons/io5";
 import { RiWindyFill } from "react-icons/ri";
 import { MdOutlineLocalGasStation } from "react-icons/md";
 
-import { IoCloseSharp } from "react-icons/io5";
+// import { IoCloseSharp } from "react-icons/io5";
 import { FaStar } from "react-icons/fa";
 import { FiMapPin } from "react-icons/fi";
 import { useState, useEffect } from "react";
-import { CamperModal } from "../Modal/CamperModal";
+// import { CamperModal } from "../Modal/CamperModal";
 import {
   Container,
   Title,
   WrapperTitle,
   Img,
   Button,
-  ImageWrapper,
   Item,
-  ModalTitleWrapper,
-  SecondWrapper,
-  CloseButton,
-  DataText,
-  LocationText,
-  AboutText,
-  BtnWrapper,
-  ButtonParagraph,
+  // ImageWrapper,
+  // ModalTitleWrapper,
+  // SecondWrapper,
+  // CloseButton,
+  // DataText,
+  // LocationText,
+  // AboutText,
+  // BtnWrapper,
+  // ButtonParagraph,
   List,
   Text,
   WrapperData,
@@ -38,24 +38,40 @@ import {
 import { Features } from "../SubPages/Features/Features";
 import { Reviews } from "../SubPages/Reviews/Reviews";
 
-export default function Card({ campersData, campersImg }) {
+type CampersData = {
+  image: string;
+  description: string;
+  title: string;
+  price: number;
+  rating: number;
+  reviewsNumber: number;
+  location: string;
+};
+
+export function Card({
+  image,
+  description,
+  title,
+  price,
+  rating,
+  reviewsNumber,
+  location,
+}: CampersData) {
   const [modalOpen, setModalOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("features");
-
   const [isFavorite, setIsFavorite] = useState(false);
 
-  console.log(campersImg);
   return (
     <Container>
       <div>
-        <Img src={campersImg} alt="" width="290px" height="310px" />
+        <Img src={image} alt={description} width="290px" height="310px" />
       </div>
       <div>
         <WrapperTitle>
-          <Title>{campersData.name}</Title>
+          <Title>{title}</Title>
           <IconWrapper>
-            <Title>{`€${campersData.price},00`}</Title>
-            <div onClick={""} style={{ cursor: "pointer" }}>
+            <Title>{`€${price},00`}</Title>
+            <div style={{ cursor: "pointer" }}>
               {isFavorite ? <FaHeart color="red" /> : <FaRegHeart />}
             </div>
           </IconWrapper>
@@ -64,33 +80,22 @@ export default function Card({ campersData, campersImg }) {
         <WrapperData>
           <FaStar style={{ color: "#FFC531" }} />
           <p>
-            {campersData.rating} ({campersData.reviews.length} Rewiews)
+            {rating} ({reviewsNumber} Rewiews)
           </p>
           <FiMapPin />
-          <p>{campersData.location}</p>
+          <p>{location}</p>
         </WrapperData>
 
-        <ShortText>{campersData.description.slice(0, 61)}..</ShortText>
+        <ShortText>{description.slice(0, 61)}..</ShortText>
 
         <List>
-          <Item>
-            <Text>
-              <IoPeopleOutline style={{ width: "20px", height: "20px" }} />
-              {campersData.adults} adults
-            </Text>
-          </Item>
           <Item>
             <Text>
               <TbAutomaticGearbox />
               Automatic
             </Text>
           </Item>
-          <Item>
-            <Text>
-              <RiWindyFill />
-              AC
-            </Text>
-          </Item>
+
           <Item>
             <Text>
               <MdOutlineLocalGasStation
@@ -99,16 +104,18 @@ export default function Card({ campersData, campersImg }) {
               Petrol
             </Text>
           </Item>
+
           <Item>
             <Text>
               <TbToolsKitchen2 style={{ width: "20px", height: "20px" }} />{" "}
               Kitchen
             </Text>
           </Item>
+
           <Item>
             <Text>
-              <IoBedOutline style={{ width: "20px", height: "20px" }} />
-              {""} beds
+              <RiWindyFill />
+              AC
             </Text>
           </Item>
         </List>

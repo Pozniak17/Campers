@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
-import "./App.styled.js";
-import Home from "./pages/Home";
-import Catalog from "./pages/Catalog";
+// import "../../App.styled.js";
+import Home from "../../pages/Home.jsx";
+import Catalog from "../../pages/Catalog.jsx";
 // import { Favourites } from "./pages/Favourites";
 import { Container } from "./App.styled.js";
-import AppBar from "./components/AppBar/AppBar.jsx";
+import AppBar from "../AppBar/AppBar.jsx";
 
 function App() {
   return (
