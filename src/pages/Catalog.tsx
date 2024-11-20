@@ -1,16 +1,29 @@
 import { useEffect, useState } from "react";
-import CardList from "../components/CardList/CardList.tsx";
-import FilterList from "../components/Filters/FilterList/FilterList";
-import { Layout } from "../components/Layout/Layout.styled";
-import { fetchCampers } from "../components/services/campers-api";
-import { RotatingTriangles } from "react-loader-spinner";
 
-export default function Catalog() {
-  const [data, setData] = useState([]);
-  const [page] = useState(1);
-  const [limit, setLimit] = useState(4);
-  const [loading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
+// import FilterList from "../components/Filters/FilterList/FilterList.jsx";
+import { Layout } from "../components/Layout/Layout.styled.js";
+import { fetchCampers } from "../components/services/campers-api.js";
+import { RotatingTriangles } from "react-loader-spinner";
+import { CardList } from "../components/CardList/CardList.jsx";
+
+export interface Data {
+  id: string;
+  gallery: [{ thumb: string; original: string }];
+  description: string;
+  name: string;
+  price: number;
+  rating: number;
+  reviews: [{}];
+  location: string;
+}
+
+export const Catalog = () => {
+  const [data, setData] = useState<Data[]>([]);
+
+  const [page] = useState<number>(1);
+  const [limit, setLimit] = useState<number>(4);
+  const [loading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -41,15 +54,14 @@ export default function Catalog() {
             visible={true}
             height="80"
             width="180"
-            color="#4fa94d"
             ariaLabel="rotating-triangles-loading"
-            wrapperStyle={{}}
+            wrapperStyle={{ color: "#4fa94d" }}
             wrapperClass="color-ring-wrapper"
           />
         </div>
       ) : (
         <>
-          <FilterList />
+          {/* <FilterList /> */}
 
           {data.length > 0 && <CardList items={data} click={handleClick} />}
         </>
@@ -59,4 +71,4 @@ export default function Catalog() {
       )}
     </Layout>
   );
-}
+};

@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable react/prop-types */
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { IoPeopleOutline } from "react-icons/io5";
 import { TbAutomaticGearbox } from "react-icons/tb";
@@ -11,7 +9,7 @@ import { MdOutlineLocalGasStation } from "react-icons/md";
 // import { IoCloseSharp } from "react-icons/io5";
 import { FaStar } from "react-icons/fa";
 import { FiMapPin } from "react-icons/fi";
-import { useState, useEffect } from "react";
+import { useState, useEffect, FC } from "react";
 // import { CamperModal } from "../Modal/CamperModal";
 import {
   Container,
@@ -37,40 +35,35 @@ import {
 } from "./Card.styled";
 import { Features } from "../SubPages/Features/Features";
 import { Reviews } from "../SubPages/Reviews/Reviews";
+import { Data } from "../../pages/Catalog";
 
-type CampersData = {
-  image: string;
-  description: string;
-  title: string;
-  price: number;
-  rating: number;
-  reviewsNumber: number;
-  location: string;
+type CardProps = {
+  data: Data;
 };
 
-export function Card({
-  image,
-  description,
-  title,
-  price,
-  rating,
-  reviewsNumber,
-  location,
-}: CampersData) {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("features");
+export const Card: FC<CardProps> = ({ data }) => {
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [activeTab, setActiveTab] = useState<"features" | "reviews">(
+    "features"
+  );
+
   const [isFavorite, setIsFavorite] = useState(false);
 
   return (
     <Container>
       <div>
-        <Img src={image} alt={description} width="290px" height="310px" />
+        <Img
+          src={data.gallery[0].thumb}
+          alt={data.description}
+          width="290px"
+          height="310px"
+        />
       </div>
       <div>
         <WrapperTitle>
-          <Title>{title}</Title>
+          <Title>{data.name}</Title>
           <IconWrapper>
-            <Title>{`€${price},00`}</Title>
+            <Title>{`€${data.price},00`}</Title>
             <div style={{ cursor: "pointer" }}>
               {isFavorite ? <FaHeart color="red" /> : <FaRegHeart />}
             </div>
@@ -80,13 +73,13 @@ export function Card({
         <WrapperData>
           <FaStar style={{ color: "#FFC531" }} />
           <p>
-            {rating} ({reviewsNumber} Rewiews)
+            {data.rating} ({data.reviews.length} Rewiews)
           </p>
           <FiMapPin />
-          <p>{location}</p>
+          <p>{data.location}</p>
         </WrapperData>
 
-        <ShortText>{description.slice(0, 61)}..</ShortText>
+        <ShortText>{data.description.slice(0, 61)}..</ShortText>
 
         <List>
           <Item>
@@ -223,4 +216,4 @@ export function Card({
       </div>
     </Container>
   );
-}
+};

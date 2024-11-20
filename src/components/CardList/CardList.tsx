@@ -1,39 +1,25 @@
-import { Card } from "../Card";
+import { FC } from "react";
+import { Data } from "../../pages/Catalog";
 import LoadMoreButton from "../LoadMoreButton/LoadMoreButton";
 import { List, Wrapper } from "./CardList.styled";
+import { Card } from "../Card/Card";
 
-export default function CardList({ items, click }) {
-  console.log(items);
+interface CardListProps {
+  items: Data[];
+  click: () => void;
+}
+
+export const CardList: FC<CardListProps> = ({ items, click }) => {
   return (
     <Wrapper>
       <List>
-        {items.map(
-          ({
-            id,
-            gallery,
-            description,
-            name,
-            price,
-            rating,
-            reviews,
-            location,
-          }) => (
-            <Card
-              key={id}
-              image={gallery[0].thumb}
-              description={description}
-              title={name}
-              price={price}
-              rating={rating}
-              reviewsNumber={reviews.length}
-              location={location}
-            />
-          )
-        )}
+        {items.map((item) => (
+          <Card data={item} key={item.id} />
+        ))}
       </List>
       {items?.length > 0 && items.length < 13 && (
         <LoadMoreButton click={click} />
       )}
     </Wrapper>
   );
-}
+};
