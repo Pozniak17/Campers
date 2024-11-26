@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Icon } from "../../shared/Icon";
+import { Icon } from "../../shared/icon";
 import {
   Checkbox,
   Container,

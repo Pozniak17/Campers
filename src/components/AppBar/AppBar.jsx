@@ -1,4 +1,4 @@
-import { Icon } from "../shared/Icon";
+import { Icon } from "../shared/icon";
 import { Header, Link, List, Item } from "./AppBar.styled";
 
 export default function AppBar() {
