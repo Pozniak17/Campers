@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line react/prop-types
-const Icon = ({
+export const Icon = ({
   name,
   width,
   height,
@@ -17,5 +17,3 @@ const Icon = ({
     <use href={`icons/symbol-defs.svg#${name}`} />
   </svg>
 );
-
-export default Icon;

@@ -5,14 +5,14 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h3`
-  color: #475467;
+  color: var(--Main, #101828);
   font-family: Inter;
-  font-size: 16px;
+  font-size: 20px;
   font-style: normal;
-  font-weight: 500;
-  line-height: 24px; /* 150% */
+  font-weight: 600;
+  line-height: 24px; /* 120% */
 
-  margin-bottom: 14px;
+  margin-bottom: 32px;
 `;
 
 export const MainTitle = styled.h2`
@@ -26,8 +26,10 @@ export const MainTitle = styled.h2`
 `;
 
 export const Line = styled.hr`
-  stroke-width: 1px;
-  stroke: rgba(16, 24, 40, 0.1);
+  width: 360px;
+  height: 0px;
+  border: 1px solid #dadde1;
+  stroke: var(--Gray-light, #dadde1);
   margin-top: 24px;
   margin-bottom: 24px;
 `;
@@ -43,32 +45,38 @@ export const Item = styled.li`
 `;
 
 export const Label = styled.label`
+  width: 112px;
+  height: 96px;
+  color: var(--Main, #101828);
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.08px;
+
   display: flex;
   flex-direction: column;
-  width: 112px;
-  height: 95px;
-  padding: 17px 12px;
-  align-items: center;
-
-  display: flex;
   justify-content: center;
-  height: 95px;
-  padding: 17px 12px;
   align-items: center;
+  gap: 8px;
 
-  border-radius: 10px;
-  border: 1px solid rgba(16, 24, 40, 0.2);
-
+  border-radius: 12px;
+  border: 1px solid var(--Gray-light, #dadde1);
   mix-blend-mode: multiply;
   cursor: pointer;
 
   &:hover {
-    border-radius: 10px;
     border: 1px solid #e44848;
   }
 
   &:active {
-    border-radius: 10px;
     border: 1px solid #e44848;
   }
+`;
+
+// Сховати стандартний чекбокс
+export const Checkbox = styled.input`
+  display: none;
 `;

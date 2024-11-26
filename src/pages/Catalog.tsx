@@ -5,6 +5,7 @@ import { Layout } from "../components/Layout/Layout.styled.js";
 import { fetchCampers } from "../components/services/campers-api.js";
 import { RotatingTriangles } from "react-loader-spinner";
 import { CardList } from "../components/CardList/CardList.jsx";
+import FilterList from "../components/Filters/FilterList/FilterList.jsx";
 
 export interface Data {
   id: string;
@@ -61,7 +62,7 @@ export const Catalog = () => {
         </div>
       ) : (
         <>
-          {/* <FilterList /> */}
+          <FilterList />
 
           {data.length > 0 && <CardList items={data} click={handleClick} />}
         </>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Title = styled.h2`
-  color: #101828;
+  color: var(--Main, #101828);
   font-family: Inter;
   font-size: 20px;
   font-style: normal;
@@ -10,20 +10,16 @@ export const Title = styled.h2`
 `;
 
 export const Line = styled.hr`
+  width: 360px;
+  height: 0px;
+  border: 1px solid #dadde1;
+  stroke: var(--Gray-light, #dadde1);
   margin-top: 24px;
   margin-bottom: 24px;
-  width: 360px;
-
-  stroke-width: 1px;
-  stroke: rgba(16, 24, 40, 0.1);
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
 `;
 
 export const List = styled.ul`
   display: flex;
-  justify-content: center;
   gap: 10px;
 `;
 
@@ -32,20 +28,43 @@ export const Item = styled.li`
   display: flex;
 `;
 
-export const Button = styled.button`
-  width: 100px;
-  height: 95px;
-  border-radius: 10px;
-  border: 1px solid rgba(16, 24, 40, 0.2);
+export const Label = styled.label`
+  width: 112px;
+  height: 96px;
+  color: var(--Main, #101828);
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.08px;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  border-radius: 12px;
+  border: 1px solid var(--Gray-light, #dadde1);
   mix-blend-mode: multiply;
   cursor: pointer;
 
   &:hover {
     border: 1px solid #e44848;
   }
+
+  &:active {
+    border: 1px solid #e44848;
+  }
+`;
+
+// Сховати стандартний чекбокс
+export const Checkbox = styled.input`
+  display: none;
 `;
 
 export const Container = styled.div`
-  margin-bottom: 64px;
+  margin-bottom: 40px;
 `;

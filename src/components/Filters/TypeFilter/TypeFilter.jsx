@@ -1,7 +1,9 @@
+import { Icon } from "../../shared/Icon";
 import {
-  Button,
+  Checkbox,
   Container,
   Item,
+  Label,
   Line,
   List,
   Title,
@@ -15,13 +17,40 @@ export default function TypeFilter() {
 
       <List>
         <Item>
-          <Button>Van</Button>
+          <Label>
+            <Icon name="icon-van" width="32px" height="32px" />
+            Kitchen
+            <Checkbox
+              type="checkbox"
+              name="kitchen"
+              //   checked={equipment.kitchen}
+              //   onChange={handleChange}
+            />
+          </Label>
         </Item>
         <Item>
-          <Button>Fully Integrated</Button>
+          <Label>
+            <Icon name="icon-fully-Integrated" width="32px" height="32px" />
+            Kitchen
+            <Checkbox
+              type="checkbox"
+              name="kitchen"
+              //   checked={equipment.kitchen}
+              //   onChange={handleChange}
+            />
+          </Label>
         </Item>
         <Item>
-          <Button>Alcove</Button>
+          <Label>
+            <Icon name="icon-alcove" width="32px" height="32px" />
+            Kitchen
+            <Checkbox
+              type="checkbox"
+              name="kitchen"
+              //   checked={equipment.kitchen}
+              //   onChange={handleChange}
+            />
+          </Label>
         </Item>
       </List>
     </Container>
