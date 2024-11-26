@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { Icon } from "../../shared/Icon";
 import {
   Checkbox,
   Container,
@@ -9,7 +10,6 @@ import {
   MainTitle,
   Title,
 } from "./EquipmentFilter.styled";
-import { Icon } from "../../shared/Icon.jsx";
 
 export const EquipmentFilter = () => {
   //   const handleChange = (event) => {

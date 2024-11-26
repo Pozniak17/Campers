@@ -1,4 +1,4 @@
-import { Icon } from "../../shared/Icon.jsx";
+import { Icon } from "../../shared/Icon";
 import {
   Checkbox,
   Container,
