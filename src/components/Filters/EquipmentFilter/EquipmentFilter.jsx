@@ -1,9 +1,4 @@
 /* eslint-disable react/prop-types */
-import { RiWindyLine } from "react-icons/ri";
-import { TbAutomaticGearbox } from "react-icons/tb";
-import { TbToolsKitchen2 } from "react-icons/tb";
-import { PiTelevisionSimple } from "react-icons/pi";
-import { LuShowerHead } from "react-icons/lu";
 import {
   Checkbox,
   Container,
@@ -14,7 +9,7 @@ import {
   MainTitle,
   Title,
 } from "./EquipmentFilter.styled";
-import { Icon } from "../../shared/Icon";
+import { Icon } from "../../shared/Icon.jsx";
 
 export const EquipmentFilter = () => {
   //   const handleChange = (event) => {

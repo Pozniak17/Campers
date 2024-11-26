@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Icon } from "../../shared/Icon";
+import { Icon } from "../../shared/Icon.jsx";
 
 export const Wrapper = styled.div`
   margin-bottom: 40px;
