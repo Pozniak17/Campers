@@ -5,7 +5,7 @@ import { Layout } from "../components/Layout/Layout.styled.js";
 import { fetchCampers } from "../components/services/campers-api.js";
 import { RotatingTriangles } from "react-loader-spinner";
 import { CardList } from "../components/CardList/CardList.jsx";
-import FilterList from "../components/Filters/FilterList/FilterList.jsx";
+import { Filters } from "../components/Filters/Filters.jsx";
 
 export interface Data {
   id: string;
@@ -20,18 +20,21 @@ export interface Data {
 
 export const Catalog = () => {
   const [data, setData] = useState<Data[]>([]);
+  const [location, setLocation] = useState<string>("");
 
   const [page] = useState<number>(1);
   const [limit, setLimit] = useState<number>(4);
   const [loading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
 
+  console.log(location);
+
   useEffect(() => {
     async function fetchData() {
       try {
         setError(false);
         setIsLoading(true);
-        const campersData = await fetchCampers(limit, page);
+        const campersData = await fetchCampers(limit, page, location);
         setData(campersData);
       } catch (error) {
         setError(true);
@@ -41,10 +44,15 @@ export const Catalog = () => {
     }
 
     fetchData();
-  }, [limit, page]);
+  }, [limit, page, location]);
 
   const handleClick = () => {
     setLimit((prevState) => prevState + 4);
+  };
+
+  // функція для отримання назви з інпута локації
+  const filterLocations = (location: string) => {
+    setLocation(location);
   };
 
   return (
@@ -62,7 +70,7 @@ export const Catalog = () => {
         </div>
       ) : (
         <>
-          <FilterList />
+          <Filters handleLocation={filterLocations} />
 
           {data.length > 0 && <CardList items={data} click={handleClick} />}
         </>
